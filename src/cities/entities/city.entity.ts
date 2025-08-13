@@ -100,6 +100,7 @@ export class Zone {
   private _cod_zone: string;
   private _lat: number;
   private _lon: number;
+  private _price: number;
 
   constructor(
     id: number,
@@ -107,12 +108,22 @@ export class Zone {
     cod_zone: string,
     lat: number,
     lon: number,
+    price: number,
   ) {
     this._id = id;
     this._name = name;
     this._cod_zone = cod_zone;
     this._lat = lat;
     this._lon = lon;
+    this._price = price;
+  }
+
+  // Price
+  get price(): number {
+    return this._price;
+  }
+  set price(value: number) {
+    this._price = value;
   }
 
   // ID

@@ -10,10 +10,13 @@ export class Zone {
   cod_zone: string;
 
   @Prop({ required: false, min: -90, max: 90 })
-  lat: number;
+  lat?: number;
 
   @Prop({ required: false, min: -180, max: 180 })
-  lon: number;
+  lon?: number;
+
+  @Prop({ required: false })
+  price?: string;
 }
 export const ZoneSchema = SchemaFactory.createForClass(Zone);
 
