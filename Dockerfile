@@ -3,7 +3,7 @@
 # ============================
 FROM node:21-alpine AS builder
 
-WORKDIR /usr/src/users_microservice
+WORKDIR /usr/src/cities_microservice
 
 # Copiar solo archivos de dependencias primero para aprovechar la cache
 COPY package*.json ./
@@ -21,7 +21,7 @@ COPY . .
 # ============================
 FROM node:21-alpine AS production
 
-WORKDIR /usr/src/users_microservice
+WORKDIR /usr/src/cities_microservice
 
 # Copiar solo dependencias necesarias para producción
 COPY package*.json ./
@@ -29,6 +29,6 @@ COPY package*.json ./
 RUN npm install --production --legacy-peer-deps
 
 # Copiar el código compilado o necesario desde el builder
-COPY --from=builder /usr/src/users_microservice ./
+COPY --from=builder /usr/src/cities_microservice ./
 
 EXPOSE 3000
